@@ -1,39 +1,19 @@
-<div align="center">
+# market-signal-engine
 
-# 📈 Market Signal Engine
+Reads a CSV of daily closing prices and prints a BULLISH, BEARISH or NEUTRAL signal, along with the reasons behind it. I wanted something where every output can be checked by hand, so there is no machine learning here, only two classic indicators:
 
-**A transparent, rule-based engine that scans price data and explains every signal it produces.**
+- **SMA 20 vs SMA 50** for the trend
+- **RSI 14** for momentum (above 70 overbought, below 30 oversold)
 
-![Python](https://img.shields.io/badge/Python-3.10+-3776AB?style=flat-square&logo=python&logoColor=white)
-![Dependencies](https://img.shields.io/badge/Dependencies-zero-success?style=flat-square)
-![Explainable](https://img.shields.io/badge/Signals-100%25%20explainable-00D9FF?style=flat-square)
-![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)
+No dependencies, standard library only.
 
-</div>
-
----
-
-## ✨ Why
-
-Most trading bots are black boxes. This engine does the opposite: **every signal comes with the exact reason behind it**, so a human can always understand — and challenge — the decision.
-
-## 🧠 What it computes
-
-| Indicator | What it tells you |
-|---|---|
-| **SMA 20 / SMA 50** | Short-term vs long-term trend — a crossover hints at a trend change |
-| **RSI 14** | Momentum — above 70 is "overbought", below 30 is "oversold" |
-| **Combined signal** | `BULLISH`, `BEARISH` or `NEUTRAL`, with a plain-language explanation |
-
-## 🚀 Quick start
+## Usage
 
 ```bash
-git clone https://github.com/toureabdoul2050-alt/market-signal-engine.git
-cd market-signal-engine
 python signals.py prices.csv
 ```
 
-`prices.csv` needs two columns, oldest row first:
+The CSV needs at least 51 rows, oldest first:
 
 ```csv
 date,close
@@ -41,27 +21,23 @@ date,close
 2026-01-03,102.10
 ```
 
-Works with any asset that has a daily close: stocks, ETFs, crypto, currencies.
-
-## 🧾 Example output
+Example output:
 
 ```
 Signal: BULLISH
 - SMA20 (108.4) is above SMA50 (104.9): short-term trend is up.
-- RSI14 is 61.2: momentum is positive but not overbought.
+- RSI14 is 61.2: momentum is positive but not extreme.
 ```
 
-## 🗺 Roadmap
+## Ideas for later
 
-- [x] SMA + RSI signals with explanations
-- [ ] Multi-asset watchlist scan
-- [ ] Backtesting module
-- [ ] Optional LLM summary of the day's signals
+- Scan a whole watchlist at once
+- A simple backtest
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-This project is for **education and research only**. It is **not financial advice**. Markets are risky; never trade money you cannot afford to lose.
+For learning and research only. This is not financial advice.
 
----
+## License
 
-<div align="center">Built by <a href="https://github.com/toureabdoul2050-alt">Ladji Touré</a> · MIT License</div>
+MIT
