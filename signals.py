@@ -1,4 +1,4 @@
-"""Market Signal Engine — explainable SMA + RSI signals from a CSV of daily closes.
+"""Market Signal Engine: explainable SMA + RSI signals from a CSV of daily closes.
 
 Usage:
     python signals.py prices.csv
